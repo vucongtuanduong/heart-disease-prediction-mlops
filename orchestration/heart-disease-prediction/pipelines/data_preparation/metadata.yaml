@@ -7,6 +7,14 @@ blocks:
   - ingest_line_chart_n3
   - ingest_pie_chart_q0
   - ingest_pie_chart_x3
+  - feature_profiles_for_ingest
+  - unique_values_for_ingest
+  - most_frequent_values_for_ingest
+  - ingest_pie_chart_t9
+  - ingest_pie_chart_c7
+  - ingest_pie_chart_f0
+  - ingest_pie_chart_d4
+  - ingest_line_chart_a0
   executor_config: null
   executor_type: local_python
   has_callback: false
@@ -129,3 +137,175 @@ widgets:
   upstream_blocks:
   - ingest
   uuid: ingest_pie_chart_x3
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    chart_type: table
+    height: 3000
+    index: stats
+    x: columns
+    y: rows
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: feature profiles for ingest
+  retry_config: null
+  status: executed
+  timeout: null
+  type: chart
+  upstream_blocks:
+  - ingest
+  uuid: feature_profiles_for_ingest
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    chart_style: horizontal
+    chart_type: bar chart
+    x: columns
+    y: number_of_unique_values
+    y_sort_order: descending
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: unique values for ingest
+  retry_config: null
+  status: executed
+  timeout: null
+  type: chart
+  upstream_blocks:
+  - ingest
+  uuid: unique_values_for_ingest
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    chart_type: table
+    height: 3000
+    index: column_index
+    x: columns
+    y: rows
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: most frequent values for ingest
+  retry_config: null
+  status: executed
+  timeout: null
+  type: chart
+  upstream_blocks:
+  - ingest
+  uuid: most_frequent_values_for_ingest
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    buckets: '15'
+    chart_type: pie chart
+    group_by:
+    - exercise_angina
+    x: x
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: ingest_pie chart_t9
+  retry_config: null
+  status: executed
+  timeout: null
+  type: chart
+  upstream_blocks:
+  - ingest
+  uuid: ingest_pie_chart_t9
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    buckets: 7
+    chart_type: pie chart
+    group_by:
+    - chest_pain_type
+    x: x
+    x_axis_label_format: ''
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: ingest_pie chart_c7
+  retry_config: null
+  status: executed
+  timeout: null
+  type: chart
+  upstream_blocks:
+  - ingest
+  uuid: ingest_pie_chart_c7
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    buckets: 7
+    chart_type: pie chart
+    group_by:
+    - sex
+    x: x
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: ingest_pie chart_f0
+  retry_config: null
+  status: executed
+  timeout: null
+  type: chart
+  upstream_blocks:
+  - ingest
+  uuid: ingest_pie_chart_f0
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    buckets: 7
+    chart_type: pie chart
+    group_by:
+    - fasting_blood_sugar
+    x: x
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: ingest_pie chart_d4
+  retry_config: null
+  status: executed
+  timeout: null
+  type: chart
+  upstream_blocks:
+  - ingest
+  uuid: ingest_pie_chart_d4
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    chart_type: line chart
+    group_by:
+    - target
+    metrics:
+    - aggregation: average
+      column: cholesterol
+    x: x
+    y: y
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: ingest_line chart_a0
+  retry_config: null
+  status: executed
+  timeout: null
+  type: chart
+  upstream_blocks:
+  - ingest
+  uuid: ingest_line_chart_a0
