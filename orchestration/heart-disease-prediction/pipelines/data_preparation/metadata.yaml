@@ -35,6 +35,7 @@ blocks:
       path: transformers/transform_data.py
   downstream_blocks:
   - train
+  - hyperparameter_tuning
   executor_config: null
   executor_type: local_python
   has_callback: false
@@ -63,6 +64,39 @@ blocks:
   upstream_blocks:
   - transform_data
   uuid: train
+- all_upstream_blocks_executed: true
+  color: null
+  configuration: {}
+  downstream_blocks:
+  - mlflow_register_model
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: hyperparameter_tuning
+  retry_config: null
+  status: executed
+  timeout: null
+  type: data_exporter
+  upstream_blocks:
+  - transform_data
+  uuid: hyperparameter_tuning
+- all_upstream_blocks_executed: true
+  color: null
+  configuration: {}
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: mlflow_register_model
+  retry_config: null
+  status: not_executed
+  timeout: null
+  type: data_exporter
+  upstream_blocks:
+  - hyperparameter_tuning
+  uuid: mlflow_register_model
 cache_block_output_in_memory: false
 callbacks: []
 concurrency_config: {}

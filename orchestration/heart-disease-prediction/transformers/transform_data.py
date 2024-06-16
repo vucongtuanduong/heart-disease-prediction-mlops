@@ -18,7 +18,19 @@ from xgboost import XGBClassifier
 
 from sklearn.metrics import f1_score, roc_auc_score
 
+def normalization(df):
+    scaler = StandardScaler()
+    df1 = scaler.fit_transform(df)
+    df1 = pd.DataFrame(df1, columns = df.columns)
+    return df1
 
+def dict_vectorizer(X_train, X_test):
+    dv = DictVectorizer()
+    train_dicts = X_train.to_dict(orient = 'records')
+    X_train  = dv.fit_transform(train_dicts)
+    test_dicts = X_test.to_dict(orient = 'records')
+    X_test = dv.transform(test_dicts)
+    return X_train, X_test
 @transformer
 def transform(df, *args, **kwargs):
     """
@@ -35,14 +47,18 @@ def transform(df, *args, **kwargs):
         Anything (e.g. data frame, dictionary, array, int, str, etc.)
     """
     # Specify your transformation logic here
-    # X = df.drop(columns = 'target', axis = 1)
-    # y = df['target']
+    # return df;
+
+
+
+    X = df.drop(columns = 'target', axis = 1)
+    y = df['target']
     
-    # X = normalization(X)
-    # X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 20, random_state = 42)
-    # X_train, X_test = dict_vectorizer(X_train, X_test)
-    # return X_train, X_test, y_train, y_test
-    return df;
+    X = normalization(X)
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 20, random_state = 42)
+    X_train, X_test = dict_vectorizer(X_train, X_test)
+    return [X_train, X_test, y_train, y_test]
+    
 
 
 @test

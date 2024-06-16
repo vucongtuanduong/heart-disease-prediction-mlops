@@ -45,12 +45,18 @@ def export_data(df, *args, **kwargs):
         displayed when inspecting the block run.
     """
     # Specify your data exporting logic here
-    X = df.drop(columns = 'target', axis = 1)
-    y = df['target']
+    # X = df.drop(columns = 'target', axis = 1)
+    # y = df['target']
     
-    X = normalization(X)
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 20, random_state = 42)
-    X_train, X_test = dict_vectorizer(X_train, X_test)
+    # X = normalization(X)
+    # X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 20, random_state = 42)
+    # X_train, X_test = dict_vectorizer(X_train, X_test)
+
+
+    X_train = df[0]
+    X_test = df[1]
+    y_train = df[2]
+    y_test = df[3]
     mlflow.set_tracking_uri("http://mlflow:5000")
     mlflow.set_experiment("heart-disease-experiment")
     # Logistic Regression
@@ -62,10 +68,10 @@ def export_data(df, *args, **kwargs):
         f1 = f1_score(y_test, y_pred)
         roc_auc = roc_auc_score(y_test, y_pred)
         mlflow.log_param("train-data-path", "/workspaces/heart-disease-prediction-mlops/data/data.csv")
-        mlflow.log_param("f1 score", f1)
-        mlflow.log_param("roc auc score", roc_auc)
-        mlflow.log_metric("f1 score", f1)
-        mlflow.log_metric("roc auc score", roc_auc)
+        # mlflow.log_param("f1 score", f1)
+        # mlflow.log_param("roc auc score", roc_auc)
+        mlflow.log_metric("f1_score", f1)
+        mlflow.log_metric("roc_auc_score", roc_auc)
 
     # Random Forest
     with mlflow.start_run(run_name="Random Forest"):
@@ -76,10 +82,10 @@ def export_data(df, *args, **kwargs):
         y_pred = rf.predict(X_test)
         f1 = f1_score(y_test, y_pred)
         roc_auc = roc_auc_score(y_test, y_pred)
-        mlflow.log_param("f1 score", f1)
-        mlflow.log_param("roc auc score", roc_auc)
-        mlflow.log_metric("f1 score", f1)
-        mlflow.log_metric("roc auc score", roc_auc)
+        # mlflow.log_param("f1 score", f1)
+        # mlflow.log_param("roc auc score", roc_auc)
+        mlflow.log_metric("f1_score", f1)
+        mlflow.log_metric("roc_auc_score", roc_auc)
     # XGBoost
     with mlflow.start_run(run_name="XGBoost"):
         mlflow.set_tag("developer", "duongvct");
@@ -106,7 +112,7 @@ def export_data(df, *args, **kwargs):
 
         #f1 score
         f1 = f1_score(y_test, best_preds)
-        mlflow.log_metric("f1 score", f1)
+        mlflow.log_metric("f1_score", f1)
 
         # Binarize the output
         lb = LabelBinarizer()
@@ -116,7 +122,7 @@ def export_data(df, *args, **kwargs):
 
         # Calculate the ROC AUC score
         roc_auc = roc_auc_score(y_test_bin, best_preds_bin, average='macro')
-        mlflow.log_metric("roc auc score", roc_auc)
-        mlflow.log_param("f1 score", f1)
-        mlflow.log_param("roc auc score", roc_auc)
+        mlflow.log_metric("roc_auc_score", roc_auc)
+        # mlflow.log_param("f1 score", f1)
+        # mlflow.log_param("roc auc score", roc_auc)
 
