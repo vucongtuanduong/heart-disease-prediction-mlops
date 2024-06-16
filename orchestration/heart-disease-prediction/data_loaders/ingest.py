@@ -27,8 +27,10 @@ def ingest_files(**kwargs) -> pd.DataFrame:
     if response.status_code != 200:
         raise Exception(response.text)
 
-    df = pd.read_csv(BytesIO(response.content))
-    dfs.append(df)
+    data = pd.read_csv(BytesIO(response.content))
+    data = data.drop_duplicates()
+    data.columns = data.columns.str.lower().str.replace(' ', '_')
+    dfs.append(data)
     # print(len(df[df['cholesterol'] == 0]))
     return pd.concat(dfs)
 

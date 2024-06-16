@@ -3,16 +3,17 @@ blocks:
   color: null
   configuration: {}
   downstream_blocks:
-  - ingest_histogram_b1
-  - ingest_line_chart_j5
-  - feature_profiles_for_ingest
+  - ingest_histogram_v5
+  - ingest_line_chart_n3
+  - ingest_pie_chart_q0
+  - ingest_pie_chart_x3
   executor_config: null
   executor_type: local_python
   has_callback: false
   language: python
   name: ingest
   retry_config: null
-  status: updated
+  status: executed
   timeout: null
   type: data_loader
   upstream_blocks: []
@@ -41,7 +42,7 @@ type: python
 uuid: data_preparation
 variables_dir: /home/src/mage_data/heart-disease-prediction
 widgets:
-- all_upstream_blocks_executed: false
+- all_upstream_blocks_executed: true
   color: null
   configuration:
     buckets: 10
@@ -54,20 +55,20 @@ widgets:
   executor_type: local_python
   has_callback: false
   language: python
-  name: ingest_histogram_b1
+  name: ingest_histogram_v5
   retry_config: null
   status: executed
   timeout: null
   type: chart
   upstream_blocks:
   - ingest
-  uuid: ingest_histogram_b1
-- all_upstream_blocks_executed: false
+  uuid: ingest_histogram_v5
+- all_upstream_blocks_executed: true
   color: null
   configuration:
     chart_type: line chart
     group_by:
-    - age
+    - chest_pain_type
     metrics:
     - aggregation: average
       column: cholesterol
@@ -78,32 +79,53 @@ widgets:
   executor_type: local_python
   has_callback: false
   language: python
-  name: ingest_line chart_j5
+  name: ingest_line chart_n3
   retry_config: null
   status: executed
   timeout: null
   type: chart
   upstream_blocks:
   - ingest
-  uuid: ingest_line_chart_j5
-- all_upstream_blocks_executed: false
+  uuid: ingest_line_chart_n3
+- all_upstream_blocks_executed: true
   color: null
   configuration:
-    chart_type: table
-    height: 3000
-    index: stats
-    x: columns
-    y: rows
+    buckets: 7
+    chart_type: pie chart
+    group_by:
+    - target
+    x: x
   downstream_blocks: []
   executor_config: null
   executor_type: local_python
   has_callback: false
   language: python
-  name: feature profiles for ingest
+  name: ingest_pie chart_q0
   retry_config: null
   status: executed
   timeout: null
   type: chart
   upstream_blocks:
   - ingest
-  uuid: feature_profiles_for_ingest
+  uuid: ingest_pie_chart_q0
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    buckets: 7
+    chart_type: pie chart
+    group_by:
+    - resting_ecg
+    x: x
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: ingest_pie chart_x3
+  retry_config: null
+  status: executed
+  timeout: null
+  type: chart
+  upstream_blocks:
+  - ingest
+  uuid: ingest_pie_chart_x3
