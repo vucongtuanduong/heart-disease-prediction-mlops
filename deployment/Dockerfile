@@ -1,4 +1,4 @@
-FROM FROM python:3.10.13-slim
+FROM python:3.10.13-slim
 
 # do stuff here
 RUN pip install -U pip
