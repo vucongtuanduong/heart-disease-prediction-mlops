@@ -30,7 +30,7 @@ def dict_vectorizer(X_train, X_test):
     X_train  = dv.fit_transform(train_dicts)
     test_dicts = X_test.to_dict(orient = 'records')
     X_test = dv.transform(test_dicts)
-    return X_train, X_test
+    return X_train, X_test, dv
 @transformer
 def transform(df, *args, **kwargs):
     """
@@ -56,8 +56,8 @@ def transform(df, *args, **kwargs):
     
     X = normalization(X)
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 20, random_state = 42)
-    X_train, X_test = dict_vectorizer(X_train, X_test)
-    return [X_train, X_test, y_train, y_test]
+    X_train, X_test, dv = dict_vectorizer(X_train, X_test)
+    return [X_train, X_test, y_train, y_test, dv]
     
 
 

@@ -40,6 +40,7 @@ def export_data(df, *args, **kwargs):
     X_test = df[1]
     y_train = df[2]
     y_test = df[3]
+    dv = df[4]
     num_trials = 15
     mlflow.set_tracking_uri("http://mlflow:5000")
     mlflow.set_experiment("heart-disease-experiment")

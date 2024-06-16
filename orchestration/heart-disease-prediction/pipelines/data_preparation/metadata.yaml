@@ -3,7 +3,6 @@ blocks:
   color: null
   configuration: {}
   downstream_blocks:
-  - ingest_histogram_v5
   - ingest_line_chart_n3
   - ingest_pie_chart_q0
   - ingest_pie_chart_x3
@@ -91,7 +90,7 @@ blocks:
   language: python
   name: mlflow_register_model
   retry_config: null
-  status: executed
+  status: failed
   timeout: null
   type: data_exporter
   upstream_blocks:
@@ -139,11 +138,10 @@ widgets:
   language: python
   name: ingest_line chart_n3
   retry_config: null
-  status: executed
+  status: failed
   timeout: null
   type: chart
-  upstream_blocks:
-  - ingest
+  upstream_blocks: []
   uuid: ingest_line_chart_n3
 - all_upstream_blocks_executed: true
   color: null

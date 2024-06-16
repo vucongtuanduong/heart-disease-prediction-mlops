@@ -30,7 +30,7 @@ def dict_vectorizer(X_train, X_test):
     X_train  = dv.fit_transform(train_dicts)
     test_dicts = X_test.to_dict(orient = 'records')
     X_test = dv.transform(test_dicts)
-    return X_train, X_test
+    return X_train, X_test, dv
 @data_exporter
 def export_data(df, *args, **kwargs):
     """
@@ -57,6 +57,7 @@ def export_data(df, *args, **kwargs):
     X_test = df[1]
     y_train = df[2]
     y_test = df[3]
+    dv = df[4]
     mlflow.set_tracking_uri("http://mlflow:5000")
     mlflow.set_experiment("heart-disease-experiment")
     # Logistic Regression
