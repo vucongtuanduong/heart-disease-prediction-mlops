@@ -21,7 +21,7 @@ from typing import List
 def ingest_files(**kwargs) -> pd.DataFrame:
     dfs: List[pd.DataFrame] = []
     response = requests.get(
-        'https://github.com/vucongtuanduong/heart-disease-prediction-mlops/blob/main/data/data.csv'
+        'https://raw.githubusercontent.com/vucongtuanduong/heart-disease-prediction-mlops/main/data/data.csv'
     )
 
     if response.status_code != 200:
@@ -29,7 +29,7 @@ def ingest_files(**kwargs) -> pd.DataFrame:
 
     df = pd.read_csv(BytesIO(response.content))
     dfs.append(df)
-
+    # print(len(df[df['cholesterol'] == 0]))
     return pd.concat(dfs)
 
 
