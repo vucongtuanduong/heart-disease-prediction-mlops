@@ -1,7 +1,7 @@
 FROM mageai/mageai:alpha
 
 ARG PROJECT_NAME=heart-disease-prediction
-ARG MAGE_CODE_PATH=/workspaces/heart-disease-prediction-mlops/orchestration/src
+ARG MAGE_CODE_PATH=/workspaces/heart-disease-prediction-mlops/orchestration
 ARG USER_CODE_PATH=${MAGE_CODE_PATH}/${PROJECT_NAME}
 
 WORKDIR ${MAGE_CODE_PATH}
