@@ -104,5 +104,15 @@ def export_data(df, *args, **kwargs):
     # print("Best test duration time: ", best_run.info.duration , "ms")
     mlflow.register_model(f"runs:/{best_run.info.run_id}/model", 'best_run_model')
     
+    # Load the best model
+    best_model = mlflow.sklearn.load_model(f"runs:/{best_run.info.run_id}/model")
 
+    # Save the model to a pickle file
+    with open('best_model.pkl', 'wb') as f:
+        pickle.dump(best_model, f)
+
+    # Start a new MLflow run to log the model
+    with mlflow.start_run():
+        mlflow.log_artifact('best_model.pkl')
+        mlflow.sklearn.log_model(best_model, "best_model")
     
