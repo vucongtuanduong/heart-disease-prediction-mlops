@@ -43,7 +43,7 @@ mlflow.set_experiment(EXPERIMENT_NAME)
 
 
 
-def train_and_log_model(params, X_train, y_train, X_test, y_test, dv):
+def train_and_log_model(params, X_train, y_train, X_test, y_test, dv, scaler):
     with mlflow.start_run():
         # Filter out any parameters that are not valid for the RandomForestClassifier
         params = {param: int(params[param]) for param in RF_PARAMS if param in params and param in VALID_RF_PARAMS}
@@ -61,13 +61,16 @@ def train_and_log_model(params, X_train, y_train, X_test, y_test, dv):
             if param_value is not None:
                 mlflow.log_param(param, param_value)
         # Save the model and DictVectorizer to pickle files
+        with open('scaler.pkl', 'wb') as f:
+            pickle.dump(scaler, f)
         with open('rf_model.pkl', 'wb') as f:
             pickle.dump(rf, f)
         with open('dict_vectorizer.pkl', 'wb') as f:
             pickle.dump(dv, f)
         # Log the pickle files as artifacts
-        mlflow.log_artifact('rf_model.pkl')
-        mlflow.log_artifact('dict_vectorizer.pkl')
+        mlflow.log_artifact(local_path = 'scaler.pkl', artifact_path = 'models_pickle')
+        mlflow.log_artifact(local_path ='rf_model.pkl', artifact_path = 'models_pickle')
+        mlflow.log_artifact(local_path ='dict_vectorizer.pkl', artifact_path = 'models_pickle')
         
 @data_exporter
 def export_data(df, *args, **kwargs):
@@ -88,6 +91,7 @@ def export_data(df, *args, **kwargs):
     y_train = df[2]
     y_test = df[3]
     dv = df[4]
+    scaler = df[5]
     top_n = 5 #top 5
     
     
@@ -101,7 +105,7 @@ def export_data(df, *args, **kwargs):
         order_by=["metrics.f1_score DESC", "metrics.roc_auc_score DESC", "attributes.end_time ASC"]
     )
     for run in runs:
-        train_and_log_model(params = run.data.params, X_train=X_train, y_train=y_train, X_test=X_test, y_test=y_test, dv = dv)
+        train_and_log_model(params = run.data.params, X_train=X_train, y_train=y_train, X_test=X_test, y_test=y_test, dv = dv, scaler = scaler)
     
     experiment = client.get_experiment_by_name(EXPERIMENT_NAME)
     best_run = client.search_runs(experiment_ids=experiment.experiment_id,

@@ -7,6 +7,8 @@ with open('dict_vectorizer.pkl', 'rb') as f_in:
     dv = pickle.load(f_in)
 with open('rf_model.pkl', 'rb') as f_in:
     model = pickle.load(f_in)
+with open('scaler.pkl', 'rb') as f_in:
+    scaler = pickle.load(f_in)
 
 def load_clean_data(path_name) :
     data = pd.read_csv(path_name)
@@ -15,8 +17,7 @@ def load_clean_data(path_name) :
     return data
 
 def normalization(df):
-    scaler = StandardScaler()
-    df1 = scaler.fit_transform(df)
+    df1 = scaler.transform(df)
     df1 = pd.DataFrame(df1, columns = df.columns)
     return df1
 

@@ -7,5 +7,5 @@ RUN pip install pipenv
 WORKDIR /app
 COPY ["Pipfile", "Pipfile.lock", "./"]
 RUN pipenv install --system --deploy
-COPY ["dict_vectorizer.pkl", "rf_model.pkl", "predict.py", "./"]
+COPY ["dict_vectorizer.pkl", "rf_model.pkl", "scaler.pkl", "predict.py", "./"]
 CMD ["python", "predict.py"]

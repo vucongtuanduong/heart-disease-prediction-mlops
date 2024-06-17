@@ -22,7 +22,7 @@ def normalization(df):
     scaler = StandardScaler()
     df1 = scaler.fit_transform(df)
     df1 = pd.DataFrame(df1, columns = df.columns)
-    return df1
+    return df1, scaler
 
 def dict_vectorizer(X_train, X_test):
     dv = DictVectorizer()
@@ -54,10 +54,10 @@ def transform(df, *args, **kwargs):
     X = df.drop(columns = 'target', axis = 1)
     y = df['target']
     
-    X = normalization(X)
+    X,scaler = normalization(X)
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 20, random_state = 42)
     X_train, X_test, dv = dict_vectorizer(X_train, X_test)
-    return [X_train, X_test, y_train, y_test, dv]
+    return [X_train, X_test, y_train, y_test, dv, scaler]
     
 
 

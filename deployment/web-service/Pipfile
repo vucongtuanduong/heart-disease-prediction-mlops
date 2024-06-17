@@ -1,0 +1,18 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+notebook = "==7.2.1"
+xgboost = "==2.0.3"
+catboost = "==1.2.5"
+flask = "*"
+gunicorn = "*"
+scikit-learn = "*"
+
+[dev-packages]
+requests = "*"
+
+[requires]
+python_version = "3.10"
