@@ -1,0 +1,23 @@
+name: CI Tests
+on:
+  pull_request:
+    branches:
+      - 'deployment-test-branch'
+    paths:
+      - 'best-practices/**'
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: action/checkout@v2
+      - name: Set up Python 3.9
+      - uses: actions/setup-python@v2
+        with:
+          python-version: 3.9
+
+
+      - name: Install dependencies
+        working-directory: 'best-practices/'
+        run: pip install pipen && pipenv install --dev
+
+      - name: Run Unit test
