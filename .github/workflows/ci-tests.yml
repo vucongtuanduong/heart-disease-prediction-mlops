@@ -14,9 +14,11 @@ jobs:
         uses: actions/setup-python@v2
         with:
           python-version: 3.9
+
       - name: Install dependencies
         working-directory: 'best-practices/code'
         run: pip install pipenv && pipenv install --dev
-      - name: Run Unit test
+
+      - name: Run Unit tests
         working-directory: "best-practices/code"
         run: pipenv run pytest tests/
