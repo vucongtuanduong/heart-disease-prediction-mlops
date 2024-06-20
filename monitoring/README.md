@@ -1,4 +1,4 @@
-conda create -n py11 python==3.11
+conda create -n py11 python==3.10
 
 conda init
 
