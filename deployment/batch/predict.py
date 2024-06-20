@@ -38,5 +38,5 @@ y_pred = model.predict(X_val)
 print(y_pred.mean())
 
 df_result = df.copy()
-df_result['Result'] = y_pred
+df_result['target'] = y_pred
 df_result.to_csv(output_file, index=False)
