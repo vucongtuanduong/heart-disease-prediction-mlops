@@ -85,11 +85,12 @@ I use this Kaggle [dataset](https://www.kaggle.com/datasets/mexwell/heart-diseas
 │       ├── Makefile
 │       ├── Pipfile
 │       ├── Pipfile.lock
+│       ├── README.md
 │       ├── model.py
 │       └── tests
 │           ├── __init__.py
 │           └── model_test.py
-├── data  # Store data used for the project
+├── data # Store data used for the project
 │   ├── create_random_test_data.py
 │   ├── data.csv
 │   └── test.csv
@@ -111,9 +112,13 @@ I use this Kaggle [dataset](https://www.kaggle.com/datasets/mexwell/heart-diseas
 │       ├── README.md
 │       ├── dict_vectorizer.pkl
 │       ├── predict.py
+│       ├── requirements.txt
 │       ├── rf_model.pkl
 │       ├── scaler.pkl
 │       └── test.py
+├── images
+│   ├── batch-deployment.png
+│   └── orchestration1.png
 ├── model # store model exported from MLFlow
 │   ├── dict_vectorizer.pkl
 │   ├── rf_model.pkl
@@ -141,6 +146,7 @@ I use this Kaggle [dataset](https://www.kaggle.com/datasets/mexwell/heart-diseas
 │   └── requirements.txt
 └── orchestration # mage and mlflow in the same docker container
     ├── Dockerfile
+    ├── README.md
     ├── dict_vectorizer.pkl
     ├── docker-compose.yml
     ├── heart-disease-prediction
@@ -177,11 +183,16 @@ I use this Kaggle [dataset](https://www.kaggle.com/datasets/mexwell/heart-diseas
     │   └── transformers
     │       ├── __init__.py
     │       └── transform_data.py
+    ├── mage_data
     ├── mlflow
     │   └── mlflow.db
     ├── mlflow.dockerfile
     ├── rf_model.pkl
     ├── scaler.pkl
+    ├── scripts
+    │   └── database
+    ├── src
+    │   └── mage_data
     └── start.sh
 
 
