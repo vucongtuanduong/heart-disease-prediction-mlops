@@ -1,5 +1,6 @@
 # Heart disease prediction project 
 This project aims to develop a Machine Learning model capable of predicting the likelihood of a patient having a heart attack based on various health indicators. Utilizing a comprehensive dataset from Kaggle, this model seeks to assist healthcare professionals in identifying at-risk individuals more efficiently.
+
 ## Introduction
 Heart disease remains one of the leading causes of death globally. Early detection and preventive measures can significantly reduce the risk. This project leverages machine learning techniques to predict heart disease presence in patients, contributing to early diagnosis and better healthcare outcomes.
 
@@ -17,8 +18,7 @@ Heart disease remains one of the leading causes of death globally. Early detecti
 
 - Used Evidently for Model Monitoring, creting reports
 
-- 
-
+- Applied some best practices, like unittest and makefile
 
 
 ## Dataset
@@ -71,11 +71,11 @@ I use this Kaggle [dataset](https://www.kaggle.com/datasets/mexwell/heart-diseas
 │       └── tests
 │           ├── __init__.py
 │           └── model_test.py
-├── data
+├── data  # Store data used for the project
 │   ├── create_random_test_data.py
 │   ├── data.csv
 │   └── test.csv
-├── deployment
+├── deployment # deploy the model using batch and web service (flask and gunicorn)
 │   ├── batch
 │   │   ├── Dockerfile
 │   │   ├── Pipfile
@@ -96,11 +96,11 @@ I use this Kaggle [dataset](https://www.kaggle.com/datasets/mexwell/heart-diseas
 │       ├── rf_model.pkl
 │       ├── scaler.pkl
 │       └── test.py
-├── model
+├── model # store model exported from MLFlow
 │   ├── dict_vectorizer.pkl
 │   ├── rf_model.pkl
 │   └── scaler.pkl
-├── monitoring
+├── monitoring # monitor the ML Model
 │   ├── README.md
 │   ├── docker-compose.yml
 │   ├── heart-disease-predict-monitor.ipynb
@@ -109,9 +109,9 @@ I use this Kaggle [dataset](https://www.kaggle.com/datasets/mexwell/heart-diseas
 │       └── 0d494e17-0f60-4176-8376-52857a34bcc9
 │           ├── metadata.json
 │           └── snapshots
-│               ├──                     e061cc52-43b1-4235-bc1b-1d2a577cd967.json
+│               ├── e061cc52-43b1-4235-bc1b-1d2a577cd967.json
 │               └── ecc1fa28-9b34-4673-83b8-574432245547.json
-├── notebooks
+├── notebooks # notebooks for EDA and data preprocessing
 │   ├── README.md
 │   ├── catboost_info
 │   │   ├── catboost_training.json
@@ -121,7 +121,7 @@ I use this Kaggle [dataset](https://www.kaggle.com/datasets/mexwell/heart-diseas
 │   │   └── time_left.tsv
 │   ├── model.ipynb
 │   └── requirements.txt
-└── orchestration
+└── orchestration # mage and mlflow in the same docker container
     ├── Dockerfile
     ├── dict_vectorizer.pkl
     ├── docker-compose.yml
@@ -169,3 +169,20 @@ I use this Kaggle [dataset](https://www.kaggle.com/datasets/mexwell/heart-diseas
 
 ```
 
+## Setup
+
+Detailed setup to reproduce results will be provided in each directory but the first thing you can do is using Github Codespaces, creating codespaces
+
+Then create conda environment:
+
+```bash
+conda create -n venv 
+```
+
+```bash
+conda init 
+```
+
+```bash
+conda activate venv
+```
