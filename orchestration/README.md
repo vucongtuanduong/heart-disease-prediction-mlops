@@ -1,4 +1,4 @@
-# Orchestration Directory
+# Introduction
 
 This directory contains scripts and configurations for orchestrating the machine learning workflow of the Heart Disease Prediction project. It includes automation for data preprocessing, model training, evaluation, and deployment tasks.
 
@@ -73,4 +73,4 @@ To run Mage and Docker, please do the following steps:
 
 2. Change to `Ports` and click `Open in Browser` MLFlow at Port 5000 and Mage at Port 6789 
 
-![](../images/image.png)
+![](../images/orchestration1.png)
