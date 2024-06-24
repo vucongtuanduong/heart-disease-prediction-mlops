@@ -34,9 +34,9 @@ Heart disease remains one of the leading causes of death globally. Early detecti
 
 - Deployed the model for batch predictions using Docker and for real-time predictions using Gunicorn, Flask, and Docker.
 
-- Used Evidently for Model Monitoring, creting reports
+- Used Evidently for model monitoring, creating reports to ensure model performance.
 
-- Applied some best practices, like unittest and makefile
+- Applied best practices such as unit testing and utilizing Makefile for build automation.
 
 
 ## Dataset
