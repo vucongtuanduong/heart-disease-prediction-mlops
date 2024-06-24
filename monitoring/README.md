@@ -7,6 +7,21 @@ This README outlines the approach and setup for monitoring the Heart Disease Pre
 
 Monitoring is crucial for maintaining the performance, reliability, and accuracy of the Heart Disease Prediction model over time. This document focuses on using Evidently AI to track model performance, data drift, and other key metrics.
 
+## Folder Structure
+
+```bash
+├── README.md
+├── docker-compose.yml
+├── heart-disease-predict-monitor.ipynb
+├── requirements.txt
+└── workspace
+    └── 0d494e17-0f60-4176-8376-52857a34bcc9
+        ├── metadata.json
+        └── snapshots
+            ├── e061cc52-43b1-4235-bc1b-1d2a577cd967.json
+            └── ecc1fa28-9b34-4673-83b8-574432245547.json
+```
+
 ## Prerequisites
 
 - Python environment with Evidently AI, Pandas, and Joblib installed.

@@ -9,6 +9,19 @@ The Heart Disease Prediction Service is designed to predict the likelihood of he
 - Directly on your local machine using Gunicorn.
 - Inside a Docker container for isolation and ease of deployment.
 
+## Folder structure
+```bash
+├── Dockerfile
+├── Pipfile
+├── Pipfile.lock
+├── README.md
+├── dict_vectorizer.pkl
+├── predict.py
+├── requirements.txt
+├── rf_model.pkl
+├── scaler.pkl
+└── test.py
+```
 ## Deployment Instructions
 
 ### Without Docker

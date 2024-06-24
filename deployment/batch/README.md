@@ -7,6 +7,18 @@ This directory contains the necessary files and instructions for deploying the H
 
 The batch deployment process involves building a Docker container that houses the prediction model, running the container to process a batch of input data, and then extracting the prediction results for further analysis or use.
 
+## Folder Structure
+```bash
+├── Dockerfile
+├── Pipfile
+├── Pipfile.lock
+├── README.md
+├── df_predict_output.csv
+├── dict_vectorizer.pkl
+├── predict.py
+├── rf_model.pkl
+└── scaler.pkl
+```
 ## Contents
 
 - `Dockerfile`: Contains the instructions for building the Docker image of the prediction model.

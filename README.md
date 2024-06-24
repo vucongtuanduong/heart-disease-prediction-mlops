@@ -1,6 +1,24 @@
 # Heart disease prediction project 
 This project aims to develop a Machine Learning model capable of predicting the likelihood of a patient having a heart attack based on various health indicators. Utilizing a comprehensive dataset from Kaggle, this model seeks to assist healthcare professionals in identifying at-risk individuals more efficiently.
 
+## Table of Contents
+
+- [Heart disease prediction project](#heart-disease-prediction-project)
+- [Table of contents](#table-of-contents)
+- [Introduction](#introduction)
+- [Tech stack](#tech-stack)
+- [Dataset](#dataset)
+- [Project Structure](#project-structure)
+- [Setup](#setup)
+- [Setup](#setup)
+- [Notebook](notebooks/README.md)
+- [Orchestration](orchestration/README.md)
+- [Batch Deployment](deployment/batch/README.md)
+- [Web service Deployment](deployment/web-service/README.md)
+- [Monitoring](monitoring/README.md)
+- [Best Practices](best-practices/code/README.md)
+
+
 ## Introduction
 Heart disease remains one of the leading causes of death globally. Early detection and preventive measures can significantly reduce the risk. This project leverages machine learning techniques to predict heart disease presence in patients, contributing to early diagnosis and better healthcare outcomes.
 
