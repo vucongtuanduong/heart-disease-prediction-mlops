@@ -17,7 +17,7 @@ This directory contains Jupyter notebook for the Heart Disease Prediction projec
 ```
 ## Overview
 
-The notebooks in this directory serve multiple purposes:
+The notebook in this directory serve multiple purposes:
 
 - **Data Exploration**: Understand the dataset by visualizing the data distribution, identifying patterns, and detecting outliers.
 - **Feature Engineering**: Create and select features that improve model performance.
@@ -35,7 +35,8 @@ The notebooks in this directory serve multiple purposes:
 
 To get started with these notebooks:
 
-1. Ensure you have Jupyter installed in your environment. If not, you can install it using pip:
+1. Install packages
 
 ```bash
-pip install jupyter
+pip install -r requirements.txt
+```
