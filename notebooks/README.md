@@ -1,4 +1,4 @@
-# Notebooks Directory
+# Introduction
 
 This directory contains Jupyter notebook for the Heart Disease Prediction project. The notebook is used for exploratory data analysis, model prototyping, and various model building experiments related to predicting heart disease.
 
@@ -19,17 +19,11 @@ This directory contains Jupyter notebook for the Heart Disease Prediction projec
 
 The notebook in this directory serve multiple purposes:
 
-- **Data Exploration**: Understand the dataset by visualizing the data distribution, identifying patterns, and detecting outliers.
-- **Feature Engineering**: Create and select features that improve model performance.
-- **Model Prototyping**: Experiment with different machine learning models to predict heart disease.
-- **Evaluation**: Assess model performance using appropriate metrics.
+- **Data Preprocessing and Exploration**: Understand the dataset by visualizing the data distribution, identifying patterns, and detecting outliers.
+- **Data normalization**: Normalize data using StandardScaler and DictVectorizer
+- **Model Prototyping**: Experiment with different machine learning models including Logistic Regression, Random Forest, XGBoost, CatBoost to predict heart disease.
+- **Evaluation**: Assess model performance using appropriate metrics like F1 Score and ROC AUC Score.
 
-## Notebooks Description
-
-- `EDA.ipynb`: Exploratory Data Analysis - A notebook dedicated to understanding the data through visualization and statistics.
-- `Feature_Engineering.ipynb`: Feature Engineering - Techniques applied to the data to improve model input.
-- `Model_Prototyping.ipynb`: Model Prototyping - Experimentation with various machine learning models.
-- `Model_Evaluation.ipynb`: Model Evaluation - Evaluation of model performance and metrics.
 
 ## Getting Started
 
@@ -40,3 +34,10 @@ To get started with these notebooks:
 ```bash
 pip install -r requirements.txt
 ```
+2. Run Jupyter Notebook 
+
+```bash
+jupyter notebook 
+```
+
+3. Get the token and enter token to access notebook

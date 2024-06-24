@@ -176,7 +176,7 @@ Detailed setup to reproduce results will be provided in each directory but the f
 Then create conda environment:
 
 ```bash
-conda create -n venv 
+conda create -n test-env python==3.10.13
 ```
 
 ```bash
@@ -184,5 +184,5 @@ conda init
 ```
 
 ```bash
-conda activate venv
+conda activate test-env
 ```
