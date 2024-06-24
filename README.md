@@ -1,6 +1,25 @@
 # Heart disease prediction project 
-Create ML model to predict whether a patient has heart attack or not
+This project aims to develop a Machine Learning model capable of predicting the likelihood of a patient having a heart attack based on various health indicators. Utilizing a comprehensive dataset from Kaggle, this model seeks to assist healthcare professionals in identifying at-risk individuals more efficiently.
 ## Introduction
+Heart disease remains one of the leading causes of death globally. Early detection and preventive measures can significantly reduce the risk. This project leverages machine learning techniques to predict heart disease presence in patients, contributing to early diagnosis and better healthcare outcomes.
+
+## Tech stack
+
+- This project I use Python and some helpful libraries like pandas, numpy, matplotlib, seaborn to EDA the dataset and sklearn, xgboost, catboost for data preprocessing, model selection
+
+- Managed the machine learning lifecycle, including experiment tracking, reproducibility, and model deployment, using MLflow 
+
+- Orchestrated the workflow, including data ingestion, transformation, model training, logging to MLFlow , registering model and exporting models, using Mage. I also run both Mage and MLFLow using Dockerfile
+
+- Containerized the application with Docker, ensuring consistency across environments
+
+- Deployed the model for batch predictions using Docker and for real-time predictions using Gunicorn, Flask, and Docker.
+
+- Used Evidently for Model Monitoring, creting reports
+
+- 
+
+
 
 ## Dataset
 I use this Kaggle [dataset](https://www.kaggle.com/datasets/mexwell/heart-disease-dataset/data) 
@@ -38,4 +57,115 @@ I use this Kaggle [dataset](https://www.kaggle.com/datasets/mexwell/heart-diseas
 |the slope of the peak exercise ST segment|<p>-- Value 1: upsloping </p><p>-- Value 2: flat </p><p>-- Value 3: downsloping </p>|
 |class |1 = heart disease, 0 = Normal |
 
+
+## Project Structure
+```bash
+.
+├── README.md
+├── best-practices
+│   └── code
+│       ├── Makefile
+│       ├── Pipfile
+│       ├── Pipfile.lock
+│       ├── model.py
+│       └── tests
+│           ├── __init__.py
+│           └── model_test.py
+├── data
+│   ├── create_random_test_data.py
+│   ├── data.csv
+│   └── test.csv
+├── deployment
+│   ├── batch
+│   │   ├── Dockerfile
+│   │   ├── Pipfile
+│   │   ├── Pipfile.lock
+│   │   ├── README.md
+│   │   ├── df_predict_output.csv
+│   │   ├── dict_vectorizer.pkl
+│   │   ├── predict.py
+│   │   ├── rf_model.pkl
+│   │   └── scaler.pkl
+│   └── web-service
+│       ├── Dockerfile
+│       ├── Pipfile
+│       ├── Pipfile.lock
+│       ├── README.md
+│       ├── dict_vectorizer.pkl
+│       ├── predict.py
+│       ├── rf_model.pkl
+│       ├── scaler.pkl
+│       └── test.py
+├── model
+│   ├── dict_vectorizer.pkl
+│   ├── rf_model.pkl
+│   └── scaler.pkl
+├── monitoring
+│   ├── README.md
+│   ├── docker-compose.yml
+│   ├── heart-disease-predict-monitor.ipynb
+│   ├── requirements.txt
+│   └── workspace
+│       └── 0d494e17-0f60-4176-8376-52857a34bcc9
+│           ├── metadata.json
+│           └── snapshots
+│               ├──                     e061cc52-43b1-4235-bc1b-1d2a577cd967.json
+│               └── ecc1fa28-9b34-4673-83b8-574432245547.json
+├── notebooks
+│   ├── README.md
+│   ├── catboost_info
+│   │   ├── catboost_training.json
+│   │   ├── learn
+│   │   │   └── events.out.tfevents
+│   │   ├── learn_error.tsv
+│   │   └── time_left.tsv
+│   ├── model.ipynb
+│   └── requirements.txt
+└── orchestration
+    ├── Dockerfile
+    ├── dict_vectorizer.pkl
+    ├── docker-compose.yml
+    ├── heart-disease-prediction
+    │   ├── charts
+    │   │   ├── __init__.py
+    │   │   ├── feature_profiles_for_ingest.py
+    │   │   ├── ingest_line_chart_a0.py
+    │   │   ├── ingest_line_chart_n3.py
+    │   │   ├── ingest_pie_chart_c7.py
+    │   │   ├── ingest_pie_chart_d4.py
+    │   │   ├── ingest_pie_chart_f0.py
+    │   │   ├── ingest_pie_chart_q0.py
+    │   │   ├── ingest_pie_chart_t9.py
+    │   │   ├── ingest_pie_chart_x3.py
+    │   │   ├── most_frequent_values_for_ingest.py
+    │   │   └── unique_values_for_ingest.py
+    │   ├── custom
+    │   │   ├── __init__.py
+    │   │   └── download_best_model_artifacts.py
+    │   ├── data_exporters
+    │   │   ├── __init__.py
+    │   │   ├── hyperparameter_tuning.py
+    │   │   ├── mlflow_register_model.py
+    │   │   └── train.py
+    │   ├── data_loaders
+    │   │   ├── __init__.py
+    │   │   └── ingest.py
+    │   ├── metadata.yaml
+    │   ├── pipelines
+    │   │   └── data_preparation
+    │   │       ├── __init__.py
+    │   │       └── metadata.yaml
+    │   ├── requirements.txt
+    │   └── transformers
+    │       ├── __init__.py
+    │       └── transform_data.py
+    ├── mlflow
+    │   └── mlflow.db
+    ├── mlflow.dockerfile
+    ├── rf_model.pkl
+    ├── scaler.pkl
+    └── start.sh
+
+
+```
 
