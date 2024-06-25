@@ -24,19 +24,19 @@ Heart disease remains one of the leading causes of death globally. Early detecti
 
 ## Tech stack
 
-- This project I use Python and some helpful libraries like pandas, numpy, matplotlib, seaborn to EDA the dataset and sklearn, xgboost, catboost for data preprocessing, model selection
+- **Data Analysis and Model Development**: Utilized Python and libraries (pandas, numpy, matplotlib, seaborn) for exploratory data analysis (EDA) of datasets. Applied sklearn, xgboost, and catboost for data preprocessing and model selection, enhancing model accuracy and efficiency.
 
-- Managed the machine learning lifecycle, including experiment tracking, reproducibility, and model deployment, using MLflow 
+- **Machine Learning Lifecycle Management**: Managed the machine learning lifecycle, including experiment tracking, reproducibility, and model deployment, using MLflow 
 
-- Orchestrated the workflow, including data ingestion, transformation, model training, logging to MLFlow , registering model and exporting models, using Mage. I also run both Mage and MLFLow using Dockerfile
+- **Workflow Orchestration**: Orchestrated the workflow, including data ingestion, transformation, and model training. Integrated logging, model registration, and export processes with Mage and MLFlow, facilitated by Docker, to optimize workflow efficiency and reliability.
 
-- Containerized the application with Docker, ensuring consistency across environments
+- **Containerization with Docker**: Containerized the application with Docker, ensuring consistency across environments
 
-- Deployed the model for batch predictions using Docker and for real-time predictions using Gunicorn, Flask, and Docker.
+- **Model Deployment**: Deployed the model for batch predictions using Docker and for real-time predictions using Gunicorn, Flask, and Docker.
 
-- Used Evidently for model monitoring, creating reports to ensure model performance.
+- **Model Monitoring**: Used Evidently for model monitoring, creating reports to ensure model performance.
 
-- Applied best practices such as unit testing and utilizing Makefile for build automation.
+- **Best Practices**: Applied best practices such as unit testing and integration test and utilizing Makefile for build automation.
 
 
 ## Dataset
