@@ -96,11 +96,11 @@ I use this Kaggle [dataset](https://www.kaggle.com/datasets/mexwell/heart-diseas
 │       └── tests
 │           ├──__init__.py
 │           └── model_test.py
-├── data
+├── data # Store data used for the project
 │   ├── create_random_test_data.py
 │   ├── data.csv
 │   └── test.csv
-├── deployment
+├── deployment # deploy the model using batch and web service (flask and gunicorn)
 │   ├── batch
 │   │   ├── Dockerfile
 │   │   ├── Pipfile
@@ -125,22 +125,22 @@ I use this Kaggle [dataset](https://www.kaggle.com/datasets/mexwell/heart-diseas
 ├── images
 │   ├── batch-deployment.png
 │   └── orchestration1.png
-├── model
+├── model # store model exported from MLFlow
 │   ├── dict_vectorizer.pkl
 │   ├── rf_model.pkl
 │   └── scaler.pkl
-├── monitoring
+├── monitoring # monitor the ML Model
 │   ├── README.md
 │   ├── docker-compose.yml
 │   ├── heart-disease-predict-monitor.ipynb
 │   ├── requirements.txt
 │   └── workspace
-├── notebooks
+├── notebooks # notebooks for EDA and data preprocessing
 │   ├── README.md
 │   ├── catboost_info
 │   ├── model.ipynb
 │   └── requirements.txt
-└── orchestration
+└── orchestration # mage and mlflow in the same docker container
     ├── Dockerfile
     ├── README.md
     ├── dict_vectorizer.pkl
