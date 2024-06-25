@@ -86,9 +86,15 @@ I use this Kaggle [dataset](https://www.kaggle.com/datasets/mexwell/heart-diseas
 │       ├── Pipfile
 │       ├── Pipfile.lock
 │       ├── README.md
+│       ├── batch.py
+│       ├── create_data_integration_test.py
+│       ├── docker-compose.yml
+│       ├── integration_test.py
+│       ├── integration_test.sh
+│       ├── log.txt
 │       ├── model.py
 │       └── tests
-│           ├── __init__.py
+│           ├──__init__.py
 │           └── model_test.py
 ├── data # Store data used for the project
 │   ├── create_random_test_data.py
@@ -129,19 +135,9 @@ I use this Kaggle [dataset](https://www.kaggle.com/datasets/mexwell/heart-diseas
 │   ├── heart-disease-predict-monitor.ipynb
 │   ├── requirements.txt
 │   └── workspace
-│       └── 0d494e17-0f60-4176-8376-52857a34bcc9
-│           ├── metadata.json
-│           └── snapshots
-│               ├── e061cc52-43b1-4235-bc1b-1d2a577cd967.json
-│               └── ecc1fa28-9b34-4673-83b8-574432245547.json
 ├── notebooks # notebooks for EDA and data preprocessing
 │   ├── README.md
 │   ├── catboost_info
-│   │   ├── catboost_training.json
-│   │   ├── learn
-│   │   │   └── events.out.tfevents
-│   │   ├── learn_error.tsv
-│   │   └── time_left.tsv
 │   ├── model.ipynb
 │   └── requirements.txt
 └── orchestration # mage and mlflow in the same docker container
@@ -151,18 +147,6 @@ I use this Kaggle [dataset](https://www.kaggle.com/datasets/mexwell/heart-diseas
     ├── docker-compose.yml
     ├── heart-disease-prediction
     │   ├── charts
-    │   │   ├── __init__.py
-    │   │   ├── feature_profiles_for_ingest.py
-    │   │   ├── ingest_line_chart_a0.py
-    │   │   ├── ingest_line_chart_n3.py
-    │   │   ├── ingest_pie_chart_c7.py
-    │   │   ├── ingest_pie_chart_d4.py
-    │   │   ├── ingest_pie_chart_f0.py
-    │   │   ├── ingest_pie_chart_q0.py
-    │   │   ├── ingest_pie_chart_t9.py
-    │   │   ├── ingest_pie_chart_x3.py
-    │   │   ├── most_frequent_values_for_ingest.py
-    │   │   └── unique_values_for_ingest.py
     │   ├── custom
     │   │   ├── __init__.py
     │   │   └── download_best_model_artifacts.py
@@ -183,19 +167,12 @@ I use this Kaggle [dataset](https://www.kaggle.com/datasets/mexwell/heart-diseas
     │   └── transformers
     │       ├── __init__.py
     │       └── transform_data.py
-    ├── mage_data
     ├── mlflow
     │   └── mlflow.db
     ├── mlflow.dockerfile
     ├── rf_model.pkl
     ├── scaler.pkl
-    ├── scripts
-    │   └── database
-    ├── src
-    │   └── mage_data
     └── start.sh
-
-
 ```
 
 ## Setup
