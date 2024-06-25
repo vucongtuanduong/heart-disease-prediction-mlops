@@ -40,7 +40,7 @@ make test
 make integration_test
 ```
 
-aws configure
+<!-- aws configure
 
 aws --endpoint-url=http://localhost:4566 s3 mb s3://heart-disease-prediction
 
@@ -48,4 +48,4 @@ export S3_ENDPOINT_URL='http://localhost:4566'
 
 export INPUT_FILE_PATTERN="s3://heart-disease-prediction/in/test{preindex}.csv"
 
-export OUTPUT_FILE_PATTERN="s3://heart-disease-prediction/out/test{preindex}.csv"
+export OUTPUT_FILE_PATTERN="s3://heart-disease-prediction/out/test{preindex}.csv" -->
