@@ -5,6 +5,8 @@ import sys
 import pickle
 import pandas as pd
 import os
+import random
+import numpy as np
 from pathlib import Path
 def get_input_path(preindex):
     default_input_pattern = 'https://raw.githubusercontent.com/vucongtuanduong/heart-disease-prediction-mlops/dev-test/data/test{preindex}.csv'
@@ -13,7 +15,7 @@ def get_input_path(preindex):
 
 
 def get_output_path(preindex):
-    default_output_pattern = 's3://heart-prediction-duongvct/preindex = {preindex}/predictions.csv'
+    default_output_pattern = 's3://heart-disease-prediction/preindex = {preindex}/predictions.csv'
     output_pattern = os.getenv('OUTPUT_FILE_PATTERN', default_output_pattern)
     return output_pattern.format(preindex = preindex)
 def read_data(filename):
@@ -37,8 +39,11 @@ def prepare_data(df):
         dv = pickle.load(f_in)
     with open(file_path3, 'rb') as f_in:
         scaler = pickle.load(f_in)
-    df = dv.transform(df)
+    df_columns = df.columns
     df = scaler.transform(df)
+    df = pd.DataFrame(df, columns = df_columns)
+    dicts = df.to_dict(orient='records')    
+    df = dv.transform(dicts)
     return df
 
 def save_data(df, output_filename):
@@ -65,7 +70,6 @@ def main(preindex):
     df = read_data(input_file)
     df1 = prepare_data(df)
     y_pred = model.predict(df1)
-
     df_result = df.copy()
     df_result['predicted_target'] = y_pred
     save_data(df_result, output_file)

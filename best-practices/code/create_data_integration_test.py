@@ -1,6 +1,8 @@
 import os
 import pandas as pd
 import batch
+import random
+import numpy as np
 
 def create_data():
     S3_ENDPOINT_URL = os.getenv('S3_ENDPOINT_URL')
@@ -11,7 +13,7 @@ def create_data():
         }
     }
     for i in range(1, 12, 1):
-        input_file = get_input_path(i)
+        input_file = batch.get_input_path(i)
         data = {
             'age': [random.randint(20, 80) for _ in range(500)],
             'sex': [random.choice([0, 1]) for _ in range(500)],
@@ -31,7 +33,11 @@ def create_data():
 
         # Write DataFrame to CSV file
         df.to_csv(input_file, index=False, storage_options = options)
-    
+        os.system(f'aws --endpoint-url=http://localhost:4566 s3 cp {input_file} .')
+        filename = input_file.split("/")[-1]
+        # print(filename)
+        print(os.path.getsize(filename))
+        
 
 if __name__ == "__main__":
     create_data()
