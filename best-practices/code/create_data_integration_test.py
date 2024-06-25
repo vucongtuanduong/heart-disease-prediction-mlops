@@ -33,10 +33,6 @@ def create_data():
 
         # Write DataFrame to CSV file
         df.to_csv(input_file, index=False, storage_options = options)
-        os.system(f'aws --endpoint-url=http://localhost:4566 s3 cp {input_file} .')
-        filename = input_file.split("/")[-1]
-        # print(filename)
-        print(os.path.getsize(filename))
         
 
 if __name__ == "__main__":

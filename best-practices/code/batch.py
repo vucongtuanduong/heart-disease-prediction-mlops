@@ -8,16 +8,16 @@ import os
 import random
 import numpy as np
 from pathlib import Path
-def get_input_path(preindex):
-    default_input_pattern = 'https://raw.githubusercontent.com/vucongtuanduong/heart-disease-prediction-mlops/dev-test/data/test{preindex}.csv'
+def get_input_path(preindex, prefix = 'default-prefix'):
+    default_input_pattern = f'https://raw.githubusercontent.com/vucongtuanduong/heart-disease-prediction-mlops/dev-test/data/test{preindex}.csv'
     input_pattern = os.getenv('INPUT_FILE_PATTERN', default_input_pattern)
-    return input_pattern.format(preindex = preindex)
+    return input_pattern.format(preindex = preindex, prefix = preindex)
 
 
-def get_output_path(preindex):
-    default_output_pattern = 's3://heart-disease-prediction/preindex = {preindex}/predictions.csv'
+def get_output_path(preindex, prefix = 'default-prefix'):
+    default_output_pattern = f's3://heart-disease-prediction/preindex = {preindex}/predictions.csv'
     output_pattern = os.getenv('OUTPUT_FILE_PATTERN', default_output_pattern)
-    return output_pattern.format(preindex = preindex)
+    return output_pattern.format(preindex = preindex, prefix = preindex)
 def read_data(filename):
     S3_ENDPOINT_URL = os.getenv('S3_ENDPOINT_URL')
     if S3_ENDPOINT_URL is not None:
