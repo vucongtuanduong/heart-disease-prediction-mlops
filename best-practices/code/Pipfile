@@ -6,6 +6,8 @@ name = "pypi"
 [packages]
 scikit-learn = "==1.5.0"
 pandas = "*"
+fsspec = "*"
+s3fs = "*"
 pyarrow = "*"
 awscli = "*"
 
