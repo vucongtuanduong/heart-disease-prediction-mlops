@@ -12,8 +12,6 @@ In this project I apply two basic best practices like unit test and using makefi
 ├── Pipfile
 ├── Pipfile.lock
 ├── README.md
-├── __pycache__
-│   └── model.cpython-310.pyc
 ├── batch.py
 ├── create_data_integration_test.py
 ├── docker-compose.yml
@@ -23,9 +21,7 @@ In this project I apply two basic best practices like unit test and using makefi
 ├── model.py
 └── tests
     ├── __init__.py
-    ├── __pycache__
-    │   ├── __init__.cpython-310.pyc
-    │   └── model_test.cpython-310-pytest-8.2.1.pyc
+    │  
     └── model_test.py
 ```
 
